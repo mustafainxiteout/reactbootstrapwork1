@@ -10,6 +10,9 @@ import reportWebVitals from './reportWebVitals';
 import { Route, BrowserRouter as Router, Routes} from 'react-router-dom';
 import Register from './components/Register';
 import Login from './components/Login';
+import Sidebar from './components/Sidebar';
+import Admin from './components/Admin';
+import Home from './components/Home';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -18,6 +21,8 @@ root.render(
     <Route path='/' element={<App/>}/>
     <Route exact path="/signup" element={<Register/>}></Route>
     <Route exact path="/signin" element={<Login/>}></Route>
+    <Route exact path='/admin' element={<Sidebar navs={<Admin/>}/>}/>
+    <Route exact path='/home' element={<Sidebar navs={<Home/>}/>}/>
     </Routes>
   </Router>
 );

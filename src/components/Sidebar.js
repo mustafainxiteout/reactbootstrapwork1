@@ -1,27 +1,28 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Col, Container, NavLink, Row } from 'react-bootstrap';
-import Home from './Home';
-import Admin from './Admin';
+import { useNavigate } from 'react-router-dom';
+import HeaderComponent from './HeaderComponent';
 
-function Sidebar() {
-const [activeTab, setActiveTab] = useState(<Home/>);
-
+function Sidebar({navs}) {
+const navigate=useNavigate()
 const handleTabClick = (components) => {
-setActiveTab(components);
+navigate(components);
 };
 
 const data=[
     {
       hrefs:'Home',
-      components:<Home/>,
+      components:'/home',
     },
     {
       hrefs:'Admin',
-      components:<Admin/>,
+      components:'/admin',
     }
   ]
 
 return (
+<>
+<HeaderComponent/>
 <Container fluid>
 <Row>
 <Col className="col-auto shadow-small bg-light flex-shrink-0 d-flex mx-3 my-1 border rounded-4" style={{width: "auto",minHeight:"86vh"}}>
@@ -34,10 +35,11 @@ return (
 </ul>
 </Col>
 <Col className='col-sm p-4'>
-{activeTab}
+{navs}
 </Col>
 </Row>
 </Container>
+</>
 )
 }
 
