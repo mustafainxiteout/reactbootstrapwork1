@@ -21,8 +21,8 @@ root.render(
     <Route path='/' element={<App/>}/>
     <Route exact path="/signup" element={<Register/>}></Route>
     <Route exact path="/signin" element={<Login/>}></Route>
-    <Route exact path='/admin' element={<Sidebar navs={<Admin/>}/>}/>
     <Route exact path='/home' element={<Sidebar navs={<Home/>}/>}/>
+    <Route exact path='/admin' element={<Sidebar navs={<Admin/>}/>}/>
     </Routes>
   </Router>
 );
